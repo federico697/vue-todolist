@@ -21,8 +21,8 @@
     <!-- Input per nuova todo + bottone -->
     <div class="container pt-4">
       <div class="d-flex align-items-center justify-content-center">
-        <input id="newTask" type="text" placeholder="inserisci nuova task">
-        <button class="btn btn-primary ms-3">Nuova Todo</button>
+        <input v-model="newTask" id="newTask" type="text" placeholder="inserisci nuova task">
+        <button @click="pushTask" class="btn btn-primary ms-3">Aggiungi task</button>
       </div>
 
       <!-- Area per la lista delle todo -->
