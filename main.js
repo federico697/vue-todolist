@@ -13,23 +13,23 @@ var app = new Vue({
       ],
       todoDone: []
     },
-    
-  
+   
+    beforeUpdate() {
+      //entra quando l'applicativo vue controlla il dom e i dati e i componenti si modificano
+      this.todoList.forEach( (elem, index)=>{
+        if( elem.done == true ){
+          this.todoDone.push( elem );
+          this.todoList.splice( index,1 );
+        }
+      } );
+    },
+   
     methods: {
       pushTask(){
         this.todoList.push({
           testo: this.newTask,
           done: false
         })
-      },
-      beforeUpdate() {
-        //entra quando l'applicativo vue controlla il dom e i dati e i componenti si modificano
-        this.todoList.forEach( (elem, index)=>{
-          if( elem.done == true ){
-            this.todoDone.push( elem );
-            this.todoList.splice( index,1 );
-          }
-        } );
       },
       rimuovoElemento(index, elem){
         //Rimuovi oggetto dall'array
